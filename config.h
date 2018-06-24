@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 /* tagging */
 static const char *tags[] = {
   "base", "web", "dev", "doc", "img",
-  "vid", "mus", "eml", "bla",
+  "vid", "mus", "eml", "foo",
 };
 
 static const Rule rules[] = {
@@ -83,10 +83,10 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]       = { "st", NULL };
-static const char *irssicmd[]      = { "st", "-t", "irssi", "-e", "irssi", NULL };
+static const char *termcmd[]       = { "kitty", NULL };
+static const char *irssicmd[]      = { "kitty", "-t", "irssi", "-e", "irssi", NULL };
 static const char *lockcmd[]       = { "slock", NULL };
-static const char *mailcmd[]       = { "st", "-t", "mutt", "-e", "mutt", NULL };
+static const char *mailcmd[]       = { "kitty", "-t", "mutt", "-e", "mutt", NULL };
 static const char *muscmd[]        = { "st", "-t", "cmus", "-e", "cmus", NULL };
 static const char *musnext[]       = { "st", "-e", "cmus-remote", "--next", NULL };
 static const char *muspause[]      = { "st", "-e", "cmus-remote", "--pause", NULL };
