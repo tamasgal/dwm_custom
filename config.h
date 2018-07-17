@@ -48,7 +48,6 @@ static const Rule rules[] = {
   { "vncviewer",     "Vncviewer", NULL,          1 << 6,  False,       -1 },
   {  NULL,           NULL,        "mutt",        1 << 7,  False,       -1 },
   {  NULL,           NULL,        "scratchpad",  0,       True,        -1 },
-  {  NULL,           NULL,        "todo",        0,       True,        -1 },
   { "Gcolor2",       NULL,        NULL,          0,       True,        -1 },
   { "Lxappearance",  NULL,        NULL,          0,       True,        -1 },
   { "XFontSel",      NULL,        NULL,          0,       True,        -1 },
@@ -88,7 +87,6 @@ static const char *mailcmd[]       = { "kitty", "-T", "mutt", "-e", "mutt", NULL
 static const char *padcmd[]        = { "kitty", "-T", "scratchpad", "-g", "56x10-30+40", NULL };
 static const char *rangercmd[]     = { "kitty", "-T", "ranger", "-e", "ranger", NULL };
 static const char *tmuxcmd[]       = { "kitty", "-T", "tmux", "-e", "tmux", "-f", "/home/tgal/.tmux.conf", NULL };
-static const char *todocmd[]       = { "kitty", "-T", "todo", "-e", "vim", "/home/tgal/TODO", NULL };
 static const char *voldowncmd[]    = { "pactl", "set-sink-volume", "0", "-2%", NULL };
 static const char *volupcmd[]      = { "pactl", "set-sink-volume", "0", "+2%", NULL };
 static const char *lightdowncmd[]    = { "xbacklight", "-10", NULL };
@@ -137,7 +135,6 @@ static Key keys[] = {
   { MODKEY|ShiftMask,  XK_p,        spawn,           {.v = printfocuscmd} },
   { MODKEY|ShiftMask,  XK_r,        spawn,           {.v = rangercmd} },
   { MODKEY|ShiftMask,  XK_t,        spawn,           {.v = tmuxcmd} },
-  { MODKEY|ShiftMask,  XK_y,        spawn,           {.v = todocmd} },
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)
