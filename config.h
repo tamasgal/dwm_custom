@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include "movestack.c"
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -94,7 +95,7 @@ static const char *lightupcmd[]      = { "xbacklight", "+10", NULL };
 static const char *voloffcmd[]     = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 static const char *printcmd[]      = { "scrot", NULL };
 static const char *printfocuscmd[] = { "scrot", "--focused", NULL };
-static const char *chromecmd[]     = { "chromium", NULL };
+static const char *qutebrowsercmd[]     = { "qutebrowser", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -103,6 +104,8 @@ static Key keys[] = {
   { MODKEY,                       XK_b,      togglebar,      {0} },
   { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
   { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+  { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+  { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
   { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
   { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
   { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -126,7 +129,7 @@ static Key keys[] = {
   { 0,                 0x1008ff13,  spawn,           {.v = volupcmd } },
   { 0,                 0x1008ff03,  spawn,           {.v = lightdowncmd } },
   { 0,                 0x1008ff02,  spawn,           {.v = lightupcmd } },
-  { MODKEY|ShiftMask,  XK_w,        spawn,           {.v = chromecmd} },
+  { MODKEY|ShiftMask,  XK_w,        spawn,           {.v = qutebrowsercmd} },
   { MODKEY|ShiftMask,  XK_i,        spawn,           {.v = irssicmd} },
   { MODKEY|ShiftMask,  XK_l,        spawn,           {.v = lockcmd} },
   { MODKEY|ShiftMask,  XK_m,        spawn,           {.v = mailcmd} },
