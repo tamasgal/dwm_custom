@@ -2,19 +2,22 @@
 #include "movestack.c"
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Fira:size=8" };
 static const char dmenufont[]       = "Fira:size=8";
 
-static const char normbordercolor[] = "#f6f6f6";
-static const char normbgcolor[]     = "#f6f6f6";
-static const char normfgcolor[]     = "#1d1f21";
-static const char selbordercolor[]  = "#e5ae38";
-static const char selbgcolor[]      = "#1177aa";
-static const char selfgcolor[]      = "#ffffff";
+static const char normbordercolor[] = "#f6f6f6";  // gray
+static const char normbgcolor[]     = "#101007";  // black
+/* static const char normfgcolor[]     = "#1d1f21";  // black */
+static const char normfgcolor[]     = "#dddddd";  // darker gray
+static const char selbordercolor[]  = "#e5ae38";  // orange
+/* static const char selbgcolor[]      = "#1177aa";  // blue */
+static const char selbgcolor[]      = "#e5ae38";  // blue
+/* static const char selfgcolor[]      = "#ffffff";  // white */
+static const char selfgcolor[]      = "#000000";  // black
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -25,7 +28,7 @@ static const char *colors[][3]      = {
 /* tagging */
 static const char *tags[] = {
   "1-hme", "2-web", "3-dev", "4-doc", "5-img",
-  "6-vid", "7-eml", "8-phd", "9-foo",
+  "6-mmd", "7-eml", "8-phd", "9-foo",
 };
 
 static const Rule rules[] = {
