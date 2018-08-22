@@ -28,7 +28,7 @@ static const char *colors[][3]      = {
 /* tagging */
 static const char *tags[] = {
   "1-hme", "2-web", "3-dev", "4-doc", "5-img",
-  "6-mmd", "7-eml", "8-phd", "9-foo",
+  "6-mmd", "7-cmm", "8-phd", "9-foo",
 };
 
 static const Rule rules[] = {
@@ -84,13 +84,13 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]       = { "kitty", NULL };
-static const char *irssicmd[]      = { "kitty", "-t", "irssi", "-e", "irssi", NULL };
+static const char *termcmd[]       = { "st", NULL };
+static const char *irssicmd[]      = { "st", "-t", "irssi", "-e", "irssi", NULL };
 static const char *lockcmd[]       = { "blurlock", NULL };
-static const char *mailcmd[]       = { "kitty", "-T", "mutt", "-e", "mutt", NULL };
-static const char *padcmd[]        = { "kitty", "-T", "scratchpad", "-g", "56x10-30+40", NULL };
-static const char *rangercmd[]     = { "kitty", "-T", "ranger", "-e", "ranger", NULL };
-static const char *tmuxcmd[]       = { "kitty", "-T", "tmux", "-e", "tmux", "-f", "/home/tgal/.tmux.conf", NULL };
+static const char *mailcmd[]       = { "st", "-T", "mutt", "-e", "mutt", NULL };
+static const char *padcmd[]        = { "st", "-T", "scratchpad", "-g", "56x10-30+40", NULL };
+static const char *rangercmd[]     = { "st", "-T", "ranger", "-e", "ranger", NULL };
+static const char *tmuxcmd[]       = { "st", "-T", "tmux", "-e", "tmux", "-f", "/home/tgal/.tmux.conf", NULL };
 static const char *voldowncmd[]    = { "amixer", "set", "Master", "2%-", NULL };
 static const char *volupcmd[]      = { "amixer", "set", "Master", "2%+", NULL };
 static const char *voloffcmd[]     = { "amixer", "set", "Master", "0", NULL };
