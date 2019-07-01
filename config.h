@@ -40,7 +40,6 @@ static const Rule rules[] = {
   { "Firefox",       NULL,        NULL,          1 << 1,  False,       -1 },
   { "Chromium",      NULL,        NULL,          1 << 1,  False,       -1 },
   { "chromium",      NULL,        NULL,          1 << 1,  False,       -1 },
-  { "qutebrowser",   NULL,        NULL,          1 << 1,  False,       -1 },
   { "Vimb",          NULL,        NULL,          1 << 1,  False,       -1 },
   { "tabbed",        NULL,        NULL,          1 << 1,  False,       -1 },
   {  NULL,           NULL,        "evim",        1 << 2,  False,       -1 },
@@ -85,6 +84,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]       = { "st", NULL };
+static const char *cmd[]       = { "st", NULL };
 static const char *irssicmd[]      = { "st", "-t", "irssi", "-e", "irssi", NULL };
 static const char *lockcmd[]       = { "blurlock", NULL };
 static const char *mailcmd[]       = { "st", "-T", "mutt", "-e", "mutt", NULL };
@@ -96,7 +96,8 @@ static const char *volupcmd[]      = { "amixer", "set", "Master", "2%+", NULL };
 static const char *voloffcmd[]     = { "amixer", "set", "Master", "0", NULL };
 static const char *printcmd[]      = { "scrot", NULL };
 static const char *printfocuscmd[] = { "scrot", "--focused", NULL };
-static const char *qutebrowsercmd[]     = { "qutebrowser", NULL };
+static const char *printselcmd[] = { "flameshot", "gui", NULL };
+static const char *browsercmd[]     = { "chromium", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -121,20 +122,21 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
   { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
   { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-  { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-  { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-  { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-  { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+  { MODKEY,                       XK_comma,  focusmon,       {.i = +1 } },
+  { MODKEY,                       XK_period, focusmon,       {.i = -1 } },
+  { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = +1 } },
+  { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = -1 } },
   { MODKEY,            XK_Home,       spawn,           {.v = voloffcmd } },
   { MODKEY,            XK_Page_Down,  spawn,           {.v = voldowncmd } },
   { MODKEY,            XK_Page_Up,    spawn,           {.v = volupcmd } },
-  { MODKEY|ShiftMask,  XK_w,          spawn,           {.v = qutebrowsercmd} },
+  { MODKEY|ShiftMask,  XK_w,          spawn,           {.v = browsercmd} },
   { MODKEY|ShiftMask,  XK_i,          spawn,           {.v = irssicmd} },
   { MODKEY|ShiftMask,  XK_l,          spawn,           {.v = lockcmd} },
   { MODKEY|ShiftMask,  XK_m,          spawn,           {.v = mailcmd} },
   { MODKEY|ShiftMask,  XK_s,          spawn,           {.v = padcmd} },
   { MODKEY,            XK_p,          spawn,           {.v = printcmd} },
   { MODKEY|ShiftMask,  XK_p,          spawn,           {.v = printfocuscmd} },
+  { MODKEY|ShiftMask,  XK_f,          spawn,           {.v = printselcmd} },
   { MODKEY|ShiftMask,  XK_r,          spawn,           {.v = rangercmd} },
   { MODKEY|ShiftMask,  XK_t,          spawn,           {.v = tmuxcmd} },
     TAGKEYS(                        XK_1,                      0)
