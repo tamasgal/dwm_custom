@@ -83,14 +83,13 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]       = { "st", NULL };
-static const char *cmd[]       = { "st", NULL };
-static const char *irssicmd[]      = { "st", "-t", "irssi", "-e", "irssi", NULL };
+static const char *termcmd[]       = { "kitty", NULL };
+static const char *irssicmd[]      = { "kitty", "irssi", NULL };
 static const char *lockcmd[]       = { "blurlock", NULL };
-static const char *mailcmd[]       = { "st", "-T", "mutt", "-e", "mutt", NULL };
-static const char *padcmd[]        = { "st", "-T", "scratchpad", "-g", "56x10-30+40", NULL };
-static const char *rangercmd[]     = { "st", "-T", "ranger", "-e", "ranger", NULL };
-static const char *tmuxcmd[]       = { "st", "-T", "tmux", "-e", "tmux", "-f", "/home/tgal/.tmux.conf", NULL };
+static const char *mailcmd[]       = { "kitty", "mutt", "-e", "mutt", NULL };
+static const char *padcmd[]        = { "kitty", "scratchpad", "-g", "56x10-30+40", NULL };
+static const char *rangercmd[]     = { "kitty", "ranger", "-e", "ranger", NULL };
+static const char *tmuxcmd[]       = { "kitty", "tmux", "-e", "tmux", "-f", "/home/tgal/.tmux.conf", NULL };
 static const char *voldowncmd[]    = { "amixer", "set", "Master", "2%-", NULL };
 static const char *volupcmd[]      = { "amixer", "set", "Master", "2%+", NULL };
 static const char *voloffcmd[]     = { "amixer", "set", "Master", "0", NULL };
@@ -98,6 +97,7 @@ static const char *printcmd[]      = { "scrot", NULL };
 static const char *printfocuscmd[] = { "scrot", "--focused", NULL };
 static const char *printselcmd[] = { "flameshot", "gui", NULL };
 static const char *browsercmd[]     = { "chromium", NULL };
+static const char *clipmenucmd[]     = { "clipmenu", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -137,6 +137,7 @@ static Key keys[] = {
   { MODKEY,            XK_p,          spawn,           {.v = printcmd} },
   { MODKEY|ShiftMask,  XK_p,          spawn,           {.v = printfocuscmd} },
   { MODKEY|ShiftMask,  XK_f,          spawn,           {.v = printselcmd} },
+  { MODKEY,            XK_c,          spawn,           {.v = clipmenucmd} },
   { MODKEY|ShiftMask,  XK_r,          spawn,           {.v = rangercmd} },
   { MODKEY|ShiftMask,  XK_t,          spawn,           {.v = tmuxcmd} },
     TAGKEYS(                        XK_1,                      0)
