@@ -64,8 +64,8 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[T]",      tile },    /* first entry is default */
+	{ "[F]",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -90,8 +90,8 @@ static const char *mailcmd[]       = { "kitty", "mutt", "-e", "mutt", NULL };
 static const char *padcmd[]        = { "kitty", "scratchpad", "-g", "56x10-30+40", NULL };
 static const char *rangercmd[]     = { "kitty", "ranger", "-e", "ranger", NULL };
 static const char *tmuxcmd[]       = { "kitty", "tmux", "-e", "tmux", "-f", "/home/tgal/.tmux.conf", NULL };
-static const char *voldowncmd[]    = { "amixer", "set", "Master", "2%-", NULL };
-static const char *volupcmd[]      = { "amixer", "set", "Master", "2%+", NULL };
+static const char *voldowncmd[]    = { "amixer", "set", "Master", "4%-", NULL };
+static const char *volupcmd[]      = { "amixer", "set", "Master", "4%+", NULL };
 static const char *voloffcmd[]     = { "amixer", "set", "Master", "0", NULL };
 static const char *printcmd[]      = { "scrot", NULL };
 static const char *printfocuscmd[] = { "scrot", "--focused", NULL };
